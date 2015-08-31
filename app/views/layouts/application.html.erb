@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MailEpubToKindle</title>
+  <title>Mail Epub To Kindle</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 offset-m2">
+        <%= render 'shared/flash_toast' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

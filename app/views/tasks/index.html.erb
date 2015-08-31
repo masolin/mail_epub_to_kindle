@@ -1,0 +1,8 @@
+<h1>Mail epub to kindle</h1>
+
+<%= form_for @task do |f| %>
+  <%= render "shared/errors", object: @task %>
+  <%= f.label :email, class: "control-label" %>
+  <%= f.text_field :email, class: "form-control", placeholder: "Your Kindle mail" %>
+  <%= f.submit "Upload", class: "btn" %>
+<% end %>
