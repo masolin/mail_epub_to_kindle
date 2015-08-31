@@ -10,9 +10,11 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
+      TaskMailer.send_to_kindle(@task).deliver_now
+      flash[:toastr] = 'Mail sent!'
       redirect_to @task
     else
-      flash.now[:toastr] = "Upload fail!"
+      flash.now[:toastr] = 'Upload fail!'
       render :index
     end
   end
