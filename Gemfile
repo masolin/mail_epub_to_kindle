@@ -53,3 +53,5 @@ end
 
 # Use materialize design
 gem 'materialize-sass', '~> 0.97'
+
+gem 'carrierwave'

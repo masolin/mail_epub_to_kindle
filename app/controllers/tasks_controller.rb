@@ -20,6 +20,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:email)
+    params.require(:task).permit(:email, :ebook)
   end
 end
