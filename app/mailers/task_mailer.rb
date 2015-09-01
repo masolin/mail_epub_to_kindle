@@ -6,7 +6,8 @@ class TaskMailer < ApplicationMailer
   #   en.task_mailer.send_to_kindle.subject
   #
   def send_to_kindle(task)
-    attachments[task.ebook_identifier] = File.read(task.ebook.current_path)
-    mail to: task.email, subject: "From mail epub to kindle"
+    mobi_name = task.ebook_identifier.sub(/.epub$/, '.mobi')
+    attachments[mobi_name] = File.read(task.mobi_path)
+    mail to: task.email, subject: "Convert"
   end
 end

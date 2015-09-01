@@ -60,4 +60,8 @@ end
 # Use materialize design
 gem 'materialize-sass', '~> 0.97'
 
+# carrierwave to upload file
 gem 'carrierwave'
+
+# os to detect os
+gem 'os'
