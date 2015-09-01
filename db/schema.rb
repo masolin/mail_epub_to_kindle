@@ -11,17 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901111939) do
+ActiveRecord::Schema.define(version: 20150901154001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "ebook"
     t.string   "mobi_path"
+    t.integer  "status",     default: 0
   end
+
+  add_index "tasks", ["status"], name: "index_tasks_on_status", using: :btree
 
 end

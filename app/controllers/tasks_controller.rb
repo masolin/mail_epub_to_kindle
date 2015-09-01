@@ -6,12 +6,27 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task = Task.find(params[:id])
+    case @task.status
+    when 'initial'
+      flash[:toastr] = 'File is uploading.'
+    when 'converting'
+      flash[:toastr] = 'File is converting.'
+    when 'broken'
+      flash[:toastr] = 'File is broken.'
+    when 'mailing'
+      flash[:toastr] = 'File is mailing.'
+    when 'sent'
+      flash[:toastr] = 'File is sent.'
+    end
   end
 
   def create
     @task = Task.new(task_params)
     if @task.save
-      convert_and_send_mail(@task)
+      ConvertToMobiJob.perform_later(@task)
+      @task.converting!
+      redirect_to @task
     else
       flash.now[:toastr] = 'Upload fail!'
       render :index

@@ -65,3 +65,6 @@ gem 'carrierwave'
 
 # os to detect os
 gem 'os'
+
+# background job
+gem 'sidekiq'

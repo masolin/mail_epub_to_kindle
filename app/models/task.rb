@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  enum status: [:initial, :converting, :broken, :mailing, :sent]
   mount_uploader :ebook, EbookUploader
 
   validates :email, presence: true
@@ -8,6 +9,6 @@ class Task < ActiveRecord::Base
   private
 
   def destroy_mobi_file
-    system('rm', mobi_path)
+    system('rm', mobi_path) unless mobi_path.nil?
   end
 end
