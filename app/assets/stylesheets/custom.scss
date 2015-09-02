@@ -16,6 +16,9 @@ body {
   @extend .center;
   font-size: 10rem;
   color: $secondary-color;
+  a {
+    color: inherit;
+  }
 }
 
 .title{
