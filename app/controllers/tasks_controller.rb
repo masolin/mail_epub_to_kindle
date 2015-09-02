@@ -7,17 +7,9 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
-    case @task.status
-    when 'initial'
-      flash[:toastr] = 'File is uploading.'
-    when 'converting'
-      flash[:toastr] = 'File is converting.'
-    when 'broken'
-      flash[:toastr] = 'File is broken.'
-    when 'mailing'
-      flash[:toastr] = 'File is mailing.'
-    when 'sent'
-      flash[:toastr] = 'File is sent.'
+    respond_to do |format|
+      format.html
+      format.json { render json: { status: @task.status.to_s } }
     end
   end
 
