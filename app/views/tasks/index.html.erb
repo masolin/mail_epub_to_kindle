@@ -13,6 +13,7 @@
     </span>
   </h5>
 </div>
+
 <%= form_for @task do |f| %>
   <%= render "shared/errors", object: @task %>
   <div class="input-field">
@@ -22,14 +23,22 @@
   <div class="file-field input-field">
     <div class="btn">
       <span>File</span>
-      <%= f.file_field :ebook, required: true %>
+      <%= f.file_field :ebook, required: true, accept: 'application/epub+zip' %>
     </div>
     <div class="file-path-wrapper">
       <input class="file-path validate" type="text" />
     </div>
   </div>
-  <%= f.submit "send", class: "btn right" %>
+  <div class="center">
+    <%= f.submit "send", class: "btn" %>
+  </div>
 <% end %>
+<div class="note">
+  <p>
+    File size is up to 12 MB.
+    Email and file would be deleted after task completed.
+  </p>
+</div>
 
 <script type="text/javascript">
   var client = new ZeroClipboard(document.getElementById("copy-link"));
@@ -38,4 +47,11 @@
       Materialize.toast("Email copied!", 4000);
     } );
   } );
+
+  $('#task_ebook').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 12) {
+      alert('Maximum file size is 12MB. Please choose a smaller file.');
+    }
+  });
 </script>

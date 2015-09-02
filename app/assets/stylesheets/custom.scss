@@ -5,8 +5,10 @@ $new-background-color: darken(color('indigo', 'darken-4'), 20%);
 body {
   background-color: $new-background-color;
   color: white;
+  font-weight: lighter;
   .btn {
     color: $new-background-color;
+    font-weight: normal;
   }
 }
 
@@ -34,6 +36,11 @@ body {
   }
 }
 
+.note {
+  @extend .center;
+  @extend  .grey-text, .text-lighten-3;
+}
+
 #status {
   @extend .center;
   font-weight: lighter;
@@ -41,7 +48,6 @@ body {
 
 footer {
   @extend .center;
-  font-weight: lighter;
   color: #eeeeee;
   a {
     color: white;
