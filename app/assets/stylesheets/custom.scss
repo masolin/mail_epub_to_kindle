@@ -1,1 +1,53 @@
+$secondary-color: #fbc02d;
 @import "materialize";
+$new-background-color: darken(color('indigo', 'darken-4'), 20%);
+
+body {
+  background-color: $new-background-color;
+  color: white;
+  .btn {
+    color: $new-background-color;
+  }
+}
+
+.logo {
+  @extend .center;
+  font-size: 10rem;
+  color: $secondary-color;
+}
+
+.title{
+  @extend .center;
+  font-weight: lighter;
+}
+
+.intro {
+  @extend .center;
+  a {
+    color: $secondary-color;
+  }
+  h5 {
+    font-weight: lighter;
+  }
+  #copy-link {
+    font-weight: normal;
+  }
+}
+
+#status {
+  @extend .center;
+  font-weight: lighter;
+}
+
+footer {
+  @extend .center;
+  font-weight: lighter;
+  color: #eeeeee;
+  a {
+    color: white;
+    text-decoration: underline;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}

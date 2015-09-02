@@ -1,3 +1,5 @@
+require 'os'
+
 class ConvertToMobiJob < ActiveJob::Base
   queue_as :default
 

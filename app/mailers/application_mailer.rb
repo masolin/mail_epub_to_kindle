@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "noreply@mail-to-kindle.com"
+  default from: "noreply@mail-epub-to-kindle.com"
   layout 'mailer'
 end

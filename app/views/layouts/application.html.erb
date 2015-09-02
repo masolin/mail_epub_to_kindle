@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Mail Epub To Kindle</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,11 +10,23 @@
 <body>
   <div class="container">
     <div class="row">
+      <h1 class="logo"><i class="fa fa-paper-plane"></i></h1>
+      <h1 class="title">Mail epub to Kindle</h1>
+    </div>
+    <div class="row">
       <div class="col s12 m8 offset-m2">
         <%= render 'shared/flash_toast' %>
         <%= yield %>
       </div>
     </div>
+    <footer>
+      made by <a href="http://yennanlin.com">Yen-Nan Lin</a>
+      |
+      bug found?
+      <a href="https://github.com/masolin/mail_epub_to_kindle">
+        <i class="fa fa-github"></i>
+      </a>
+    </footer>
   </div>
 </body>
 </html>

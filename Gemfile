@@ -68,3 +68,6 @@ gem 'os'
 
 # background job
 gem 'sidekiq'
+
+# click to copy
+gem 'zeroclipboard-rails'
