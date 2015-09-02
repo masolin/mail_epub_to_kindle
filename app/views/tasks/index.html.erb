@@ -15,7 +15,6 @@
 </div>
 
 <%= form_for @task do |f| %>
-  <%= render "shared/errors", object: @task %>
   <div class="input-field">
     <%= f.email_field :email, class: "validate", required: true %>
     <%= f.label :email, 'Your Kindle email', data: { error: "wrong" } %>
