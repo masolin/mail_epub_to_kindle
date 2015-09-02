@@ -4,15 +4,14 @@ class ConvertToMobiJob < ActiveJob::Base
   queue_as :default
 
   def perform(task)
-    @task = task
-    ret = convert_to_mobi(@task.ebook.current_path)
+    ret = convert_to_mobi(task.ebook.current_path)
     if ret.nil?
-      @task.broken!
-      DestroyTaskJob.set(wait: 1.minutes).perform_later(@task)
+      task.broken!
+      DestroyTaskJob.set(wait: 1.minutes).perform_later(task)
     else
-      @task.update_attribute(:mobi_path, ret)
-      TaskMailer.send_to_kindle(@task).deliver_later
-      @task.mailing!
+      task.update_attribute(:mobi_path, ret)
+      TaskMailer.send_to_kindle(task).deliver_later
+      task.mailing!
     end
   end
 
