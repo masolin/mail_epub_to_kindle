@@ -98,6 +98,8 @@ GEM
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
     dotenv (2.0.2)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -227,6 +229,7 @@ DEPENDENCIES
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
+  email_validator
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass (~> 0.97)

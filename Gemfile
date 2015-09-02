@@ -71,3 +71,6 @@ gem 'sidekiq'
 
 # click to copy
 gem 'zeroclipboard-rails'
+
+# validate email
+gem 'email_validator'

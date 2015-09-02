@@ -18,7 +18,7 @@ class TasksController < ApplicationController
       @task.converting!
       redirect_to @task
     else
-      flash.now[:toastr] = 'Upload fail!'
+      flash.now[:toastr] = @task.errors.full_messages
       render :index
     end
   end
