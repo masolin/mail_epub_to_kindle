@@ -74,3 +74,5 @@ gem 'zeroclipboard-rails'
 
 # validate email
 gem 'email_validator'
+
+ruby '2.2.3'
